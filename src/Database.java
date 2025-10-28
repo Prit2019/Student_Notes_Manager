@@ -1,4 +1,5 @@
-package Projects.src;
+package Student_Notes_Manager.src;
+
 public class Database {
     
 }
