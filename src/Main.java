@@ -14,7 +14,8 @@ public class Main {
             System.out.println("2. View Notes");
             System.out.println("3. Update Note");
             System.out.println("4. Delete Note");
-            System.out.println("5. Exit");
+            System.out.println("5. Search Note by Title");
+            System.out.println("6. Exit");
             System.out.print("Choose : ");
 
             int choice = sc.nextInt();
@@ -31,7 +32,14 @@ public class Main {
                     break;
 
                 case 2:
-                    NoteManager.viewNotes();
+                    System.out.println("View Notes sorted by : ");
+                    System.out.println("1. Newest First ");
+                    System.out.println("2. Oldest First ");
+                    sc.nextInt();
+                    sc.nextLine();
+
+                    NoteManager.viewNotes(choice == 1);
+
                     break;
 
                 case 3:
@@ -43,7 +51,7 @@ public class Main {
                     System.out.println("Enter new Content : ");
                     String newContent = sc.nextLine();
                     
-                    NoteManager.updateNotes(updateID, newTitle, newContent);    
+                    NoteManager.updateNotes(updateID);    
                     break;
 
                 case 4:
@@ -54,6 +62,13 @@ public class Main {
                     break;
 
                 case 5:
+                    System.out.println("Enter Keyword to Search : ");
+                    String keyword = sc.nextLine();
+                    NoteManager.search_Notes_by_Title(keyword);
+                    break;
+
+
+                case 6:
                     System.out.println("Goodbye!");
                     return;
                     

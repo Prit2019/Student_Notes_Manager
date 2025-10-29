@@ -9,8 +9,14 @@ public class Database {
     private static final String USER = "root";
     private static final String PASSWORD ="PRITPhysics2019@";
 
-    public static Connection connect() throws SQLException {
-        return DriverManager.getConnection(URL,USER,PASSWORD);
+    public static Connection connect() {
+        try{ 
+            DriverManager.getConnection(URL,USER,PASSWORD);
+        } catch(SQLException e) {
+            System.out.println("Database Connection Failed! : " + e.getMessage());
+        
+        }
+        return null;
     }
 
 
@@ -19,7 +25,10 @@ public class Database {
             String sql = "CREATE TABLE IF NOT EXISTS notes (" + 
                          "id INT AUTO_INCREMENT PRIMARY KEY; " +
                          "title VARCHAR(225); " +
-                         "content TEXT ) ";
+                         "content TEXT); " +
+                        "ALTER TABLE notes ADD COLUMN created_At TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP " ;
+
+                         
             stmnt.executeUpdate(sql);
             System.out.println("Table 'notes' is ready.");
 
