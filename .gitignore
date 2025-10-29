@@ -1,7 +1,21 @@
+# Java class files
 *.class
-bin/
-out/
-*.log
 *.jar
+
+# VS Code settings
 .vscode/
 
+# Build folders
+bin/
+out/
+
+# IntelliJ IDEA (if ever used)
+.idea/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.logu
